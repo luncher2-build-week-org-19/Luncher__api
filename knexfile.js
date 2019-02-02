@@ -7,10 +7,10 @@ module.exports = {
             filename: "./data/luncher.db3",
         },
         migrations: {
-            directory: "./data",
+            directory: "./data/migrations",
         },
         seeds: {
-            directory: "./data",
+            directory: "./data/seeds",
         },
         useNullAsDefault: true,
     },
