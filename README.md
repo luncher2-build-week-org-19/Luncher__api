@@ -26,18 +26,24 @@
 
         }
 
+    -- return id of created user
+
 1.  `Login User`
 
     -   /users/login
 
-    {
+        {
 
-        req/string - userName
+            req/string - userName
 
-        req/string - password
+            req/string - password
 
-    }
+        }
+
+    -- returns token that expires 1h after creation
 
 1.  `Get all users` for testing purposes only
 
     -   /users
+
+    -- returns array with all users
