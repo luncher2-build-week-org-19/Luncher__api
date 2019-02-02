@@ -1,4 +1,4 @@
-const { express } = require("../../../configMiddleware/configMW.js");
+const { express, bcrypt } = require("../../../configMiddleware/configMW.js");
 const db = require("../../dbConfig.js");
 const { genToken } = require("../../middleware/generateToken.js");
 // const
