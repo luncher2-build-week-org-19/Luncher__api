@@ -58,4 +58,10 @@
 
     -   /users
 
+    {
+
+        req - headers: {authorization: token}
+
+    }
+
     -- returns array with all users
