@@ -4,6 +4,7 @@ module.exports = {
     registerUser,
     loginUser,
     getUserInfo,
+    getUsers,
 };
 
 function registerUser(user) {
@@ -18,4 +19,8 @@ function loginUser(user) {
 
 function getUserInfo(user) {
     return db("users").where({ id: user.id });
+}
+
+function getUsers() {
+    return db("users").select("id", "userName", "userRole", "email");
 }
