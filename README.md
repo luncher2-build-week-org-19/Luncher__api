@@ -1,5 +1,11 @@
 # luncher2_backend_api
 
+### HEROKU DEPLOYMENT
+
+    - https://luncher-2-bw-19-lambda.herokuapp.com/
+
+---
+
 #### START SERVER
 
 -   run `yarn server`
