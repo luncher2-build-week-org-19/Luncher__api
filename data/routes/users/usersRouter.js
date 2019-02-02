@@ -1,6 +1,7 @@
 const { express, bcrypt } = require("../../../configMiddleware/configMW.js");
 // const db = require("../../dbConfig.js");
 const { genToken } = require("../../middleware/generateToken.js");
+const { protected } = require("../../middleware/protectedMW.js");
 
 const userDb = require("../../helpers/usersDb.js");
 const router = express.Router();
@@ -38,7 +39,7 @@ router.post("/login", (req, res) => {
         });
 });
 
-router.get("/", (req, res) => {
+router.get("/", protected, (req, res) => {
     userDb
         .getUsers()
         .then(users => {
