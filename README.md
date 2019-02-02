@@ -1,5 +1,11 @@
 # luncher2_backend_api
 
+#### START SERVER
+
+-   run `yarn server`
+
+---
+
 ## `ENDPOINTS`
 
 ---
