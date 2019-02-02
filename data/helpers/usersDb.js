@@ -22,5 +22,5 @@ function getUserInfo(user) {
 }
 
 function getUsers() {
-    return db("users").select("id", "userName", "userRole", "email");
+    return db("users").select("id", "userName", "userRole");
 }
