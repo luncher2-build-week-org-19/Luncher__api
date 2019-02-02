@@ -5,15 +5,11 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-module.exports = server => {
-    server.use(helmet());
-    server.use(express.json());
-    server.use(morgan("short"));
-    server.use(
-        cors({
-            credentials: true,
-            origin: "http://localhost:3000",
-        })
-    );
-    bcrypt, jwt;
+module.exports = {
+    cors,
+    helmet,
+    morgan,
+    express,
+    bcrypt,
+    jwt,
 };
