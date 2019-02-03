@@ -104,6 +104,21 @@ router.put("/update", protected, (req, res) => {
         });
 });
 
+router.delete("/", protected, (req, res) => {
+    userDb
+        .deleteUser(req.decodedToken)
+        .then(ids => {
+            if (ids == 1) {
+                res.status(200).json(ids);
+            } else {
+                res.status(404).json({ message: "User could not be found" });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err, error: "Failed to delete user" });
+        });
+});
+
 // router.get("/", (req, res) => {
 //     res.send("userRouter is connected");
 // });
