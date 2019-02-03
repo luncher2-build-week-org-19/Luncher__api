@@ -64,7 +64,7 @@ router.post("/login", (req, res) => {
         });
 });
 
-router.get("/", protected, (req, res) => {
+router.get("/info", protected, (req, res) => {
     userDb
         .getUserInfo(req.decodedToken)
         .then(user => {
