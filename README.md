@@ -120,7 +120,7 @@
 
 1.  `Update User Info`
 
-    -   /user
+    -   /users/update
 
     {
 
@@ -132,7 +132,7 @@
 
 1.  `Delete User`
 
-    -   /user
+    -   /users/delete
 
     {
 
