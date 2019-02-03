@@ -4,7 +4,8 @@ module.exports = {
     registerUser,
     loginUser,
     getUserInfo,
-    getUsers,
+    getAllUsers,
+    updateUser,
 };
 
 function registerUser(user) {
@@ -13,14 +14,29 @@ function registerUser(user) {
 
 function loginUser(user) {
     return db("users")
-        .where({ userName: user.userName })
+        .where({ username: user.userName })
         .first();
 }
 
-function getUserInfo(user) {
-    return db("users").where({ id: user.id });
+function getAllUsers() {
+    return db("users").select(
+        "id",
+        "userName",
+        "email",
+        "firstName",
+        "lastName",
+        "userRole"
+    );
 }
 
-function getUsers() {
-    return db("users").select("id", "userName", "userRole");
+function getUserInfo(user) {
+    return db("users")
+        .select("id", "userName", "email", "firstName", "lastName", "userRole")
+        .where({ username: user.username });
+}
+
+function updateUser(user, updateInfo) {
+    return db("users")
+        .where("id", user.id)
+        .update(updateInfo);
 }

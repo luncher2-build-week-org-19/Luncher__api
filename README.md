@@ -30,7 +30,7 @@
 
             req/string - userRole
 
-            req/unique/string - userName
+            req/unique/string - username
 
             req/unique/string - email
 
@@ -38,23 +38,64 @@
 
         }
 
-    -- return id of created user
+    -+- return id of created user
 
-1.  `Login User`
+        [
+            4
+        ]
 
+1)  `Login User`
     -   /users/login
+
 
         {
 
-            req/string - userName
+            req/string - username
 
             req/string - password
 
         }
 
-    -- returns token that expires 1h after creation
+        -+- return object
 
-1.  `Get all users` for testing purposes only
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYkppbSIsInVzZXJSb2xlIjoiYWRtaW4iLCJmaXJzdE5hbWUiOiJCb2IiLCJsYXN0TmFtZSI6IkppbWJvIiwiZW1haWwiOiJ0ZXN0QHRlc3QuY29tIiwiaWQiOjEsImlhdCI6MTU0OTIxMTU4MSwiZXhwIjoxNTQ5MjE1MTgxfQ.nt3CMFyFMjdPXjA47lQiZUKnhQQrnjjUP2yGXfo3_4U",
+                "user": {
+                    "id": 1,
+                    "username": "bobJim",
+                    "role": "admin"
+                }
+            }
+
+1.  `Get all users` [-- for testing purposes only --]
+
+    -   /users/all
+
+
+    -+- returns array with all users
+
+    {
+        [
+            {
+                "id": 1,
+                "username": "bobJim",
+                "email": "test@test.com",
+                "firstName": "Bob",
+                "lastName": "Jimbo",
+                "userRole": "admin"
+            },
+            {
+                "id": 2,
+                "username": "GB",
+                "email": "test2@test.com",
+                "firstName": "Gob",
+                "lastName": "Bluth",
+                "userRole": "patron"
+            }
+        ]
+    }
+
+1.  `Get User Info`
 
     -   /users
 
@@ -64,4 +105,15 @@
 
     }
 
-    -- returns array with all users
+    -- returns array with loged in user info
+
+    [
+    {
+    "id": 1,
+    "username": "bobJim",
+    "email": "test@test.com",
+    "firstName": "Bob",
+    "lastName": "Jimbo",
+    "userRole": "admin"
+    }
+    ]
