@@ -4,6 +4,11 @@ module.exports = {
     genToken(user) {
         const payload = {
             username: user.userName,
+            userRole: user.userRole,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            id: user.id,
         };
         const secret = process.env.JWT_SECRET;
         const options = {
