@@ -23,14 +23,20 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
     const creds = req.body;
-    console.log(creds);
 
     userDb
         .loginUser(creds)
         .then(user => {
             if (user && bcrypt.compareSync(creds.password, user.password)) {
                 const token = genToken(user);
-                res.status(200).json(token);
+                res.status(200).json([
+                    {
+                        token,
+                        id: user.id,
+                        username: user.userName,
+                        role: user.userRole,
+                    },
+                ]);
             } else {
                 res.status(401).json({ message: "  --> Invalid login infor" });
             }
@@ -61,6 +67,18 @@ router.get("/all", (req, res) => {
         })
         .catch(err => {
             res.status(500).json(err, { error: "Failed to load users" });
+        });
+});
+
+router.put("/update", protected, (req, res) => {
+    userDb
+        .updateUser(req.decodedToken)
+        .then(ids => {
+            console.log(ids);
+            res.status(200).json(ids);
+        })
+        .catch(err => {
+            res.status(500).json(err, "Failed to update user");
         });
 });
 

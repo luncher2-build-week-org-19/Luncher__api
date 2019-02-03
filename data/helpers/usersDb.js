@@ -5,6 +5,7 @@ module.exports = {
     loginUser,
     getUserInfo,
     getAllUsers,
+    updateUser,
 };
 
 function registerUser(user) {
@@ -35,4 +36,10 @@ function getUserInfo(user) {
     return db("users")
         .select("id", "userName", "email", "firstName", "lastName", "userRole")
         .where({ username: user.username });
+}
+
+function updateUser(user) {
+    return db("users")
+        .update(user)
+        .where({ id: user.id });
 }
