@@ -74,26 +74,26 @@
 
     -+- returns array with all users
 
-    {
-        [
-            {
-                "id": 1,
-                "username": "bobJim",
-                "email": "test@test.com",
-                "firstName": "Bob",
-                "lastName": "Jimbo",
-                "userRole": "admin"
-            },
-            {
-                "id": 2,
-                "username": "GB",
-                "email": "test2@test.com",
-                "firstName": "Gob",
-                "lastName": "Bluth",
-                "userRole": "patron"
-            }
-        ]
-    }
+        {
+            [
+                {
+                    "id": 1,
+                    "username": "bobJim",
+                    "email": "test@test.com",
+                    "firstName": "Bob",
+                    "lastName": "Jimbo",
+                    "userRole": "admin"
+                },
+                {
+                    "id": 2,
+                    "username": "GB",
+                    "email": "test2@test.com",
+                    "firstName": "Gob",
+                    "lastName": "Bluth",
+                    "userRole": "patron"
+                }
+            ]
+        }
 
 1.  `Get User Info`
 
@@ -107,16 +107,16 @@
 
     -- returns array with loged in user info
 
-    [
-    {
-    "id": 1,
-    "username": "bobJim",
-    "email": "test@test.com",
-    "firstName": "Bob",
-    "lastName": "Jimbo",
-    "userRole": "admin"
-    }
-    ]
+        [
+            {
+            "id": 1,
+            "username": "bobJim",
+            "email": "test@test.com",
+            "firstName": "Bob",
+            "lastName": "Jimbo",
+            "userRole": "admin"
+            }
+        ]
 
 1.  `Update User Info`
 
