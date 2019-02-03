@@ -54,14 +54,18 @@
 
     -- returns token that expires 1h after creation
 
-1.  `Get all users` for testing purposes only
+1.  `Get all users` [-- for testing purposes only --]
 
-    -   /users
+    -   /users/all
 
+
+    -- returns array with all users
+
+1.  `Get User Info`
     {
 
         req - headers: {authorization: token}
 
     }
 
-    -- returns array with all users
+    -- returns array with loged in user info

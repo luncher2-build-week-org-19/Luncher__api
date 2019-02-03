@@ -21,7 +21,14 @@ function loginUser(user) {
 //     return db("users").where({ id: user.id });
 // }
 function getAllUsers() {
-    return db("users");
+    return db("users").select(
+        "id",
+        "userName",
+        "email",
+        "firstName",
+        "lastName",
+        "userRole"
+    );
 }
 
 function getUserInfo(user) {
