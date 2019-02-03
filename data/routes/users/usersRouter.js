@@ -104,7 +104,7 @@ router.put("/update", protected, (req, res) => {
         });
 });
 
-router.delete("/", protected, (req, res) => {
+router.delete("/delete", protected, (req, res) => {
     userDb
         .deleteUser(req.decodedToken)
         .then(ids => {
