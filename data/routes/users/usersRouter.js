@@ -23,6 +23,7 @@ router.post("/register", (req, res) => {
 
 router.post("/login", (req, res) => {
     const creds = req.body;
+    console.log(creds);
 
     userDb
         .loginUser(creds)
@@ -41,7 +42,7 @@ router.post("/login", (req, res) => {
 
 router.get("/", protected, (req, res) => {
     userDb
-        .getUsers()
+        .getUsers(req.decodedToken)
         .then(users => {
             res.status(200).json(users);
         })

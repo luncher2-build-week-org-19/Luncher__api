@@ -21,6 +21,8 @@ function getUserInfo(user) {
     return db("users").where({ id: user.id });
 }
 
-function getUsers() {
-    return db("users").select("id", "userName", "userRole");
+function getUsers(user) {
+    return db("users")
+        .select("id", "userName", "email", "firstName", "lastName", "userRole")
+        .where({ username: user.username });
 }
