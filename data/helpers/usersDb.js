@@ -4,7 +4,7 @@ module.exports = {
     registerUser,
     loginUser,
     getUserInfo,
-    getUsers,
+    getAllUsers,
 };
 
 function registerUser(user) {
@@ -17,11 +17,14 @@ function loginUser(user) {
         .first();
 }
 
-function getUserInfo(user) {
-    return db("users").where({ id: user.id });
+// function getUserInfo(user) {
+//     return db("users").where({ id: user.id });
+// }
+function getAllUsers() {
+    return db("users");
 }
 
-function getUsers(user) {
+function getUserInfo(user) {
     return db("users")
         .select("id", "userName", "email", "firstName", "lastName", "userRole")
         .where({ username: user.username });

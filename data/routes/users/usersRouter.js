@@ -42,14 +42,25 @@ router.post("/login", (req, res) => {
 
 router.get("/", protected, (req, res) => {
     userDb
-        .getUsers(req.decodedToken)
-        .then(users => {
-            res.status(200).json(users);
+        .getUserInfo(req.decodedToken)
+        .then(user => {
+            res.status(200).json(user);
         })
         .catch(err => {
             res.status(500).json(err, {
                 error: "  --> Could not retrieve users",
             });
+        });
+});
+
+router.get("/all", (req, res) => {
+    userDb
+        .getAllUsers()
+        .then(users => {
+            res.status(200).json(users);
+        })
+        .catch(err => {
+            res.status(500).json(err, { error: "Failed to load users" });
         });
 });
 
