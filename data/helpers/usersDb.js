@@ -14,13 +14,10 @@ function registerUser(user) {
 
 function loginUser(user) {
     return db("users")
-        .where({ userName: user.userName })
+        .where({ username: user.userName })
         .first();
 }
 
-// function getUserInfo(user) {
-//     return db("users").where({ id: user.id });
-// }
 function getAllUsers() {
     return db("users").select(
         "id",
@@ -38,8 +35,8 @@ function getUserInfo(user) {
         .where({ username: user.username });
 }
 
-function updateUser(user) {
+function updateUser(user, updateInfo) {
     return db("users")
-        .update(user)
-        .where({ id: user.id });
+        .where("id", user.id)
+        .update(updateInfo);
 }

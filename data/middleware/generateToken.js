@@ -3,7 +3,7 @@ const { jwt } = require("../../configMiddleware/configMW.js");
 module.exports = {
     genToken(user) {
         const payload = {
-            username: user.userName,
+            username: user.username,
             userRole: user.userRole,
             firstName: user.firstName,
             lastName: user.lastName,
