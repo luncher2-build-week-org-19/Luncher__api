@@ -117,3 +117,15 @@
     "userRole": "admin"
     }
     ]
+
+1.  `Update User Info`
+
+    -   /user
+
+    {
+
+        req - headers: {authorization: token}
+
+    }
+
+    -+= return 1 if successful
