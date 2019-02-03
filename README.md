@@ -129,3 +129,15 @@
     }
 
     -+= return 1 if successful
+
+1.  `Delete User`
+
+    -   /user
+
+    {
+
+        req - headers: {authorization: token}
+
+    }
+
+    -+- returns 1 if successful
