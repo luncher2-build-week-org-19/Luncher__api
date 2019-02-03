@@ -56,7 +56,7 @@ router.post("/login", (req, res) => {
                     },
                 });
             } else {
-                res.status(401).json({ message: "  --> Invalid login infor" });
+                res.status(401).json({ message: "  --> Invalid login info" });
             }
         })
         .catch(err => {

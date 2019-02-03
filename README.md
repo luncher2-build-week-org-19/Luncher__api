@@ -97,7 +97,7 @@
 
 1.  `Get User Info`
 
-    -   /users
+    -   /users/info
 
     {
 
