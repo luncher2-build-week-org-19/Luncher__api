@@ -20,14 +20,7 @@ function loginUser(user) {
 }
 
 function getAllUsers() {
-    return db("users").select(
-        "id",
-        "userName",
-        "email",
-        "firstName",
-        "lastName",
-        "userRole"
-    );
+    return db("users").select("id", "userName", "firstName", "lastName");
 }
 
 function getUserInfo(user) {
