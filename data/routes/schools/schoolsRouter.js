@@ -4,6 +4,25 @@ const { protected } = require("../../middleware/protectedMW");
 const schoolDb = require("../../helpers/schoolsDb.js");
 const router = express.Router();
 
+router.get("/user/:id", (req, res) => {
+    const id = req.params.id;
+    schoolDb
+        .getSchoolByUserId(id)
+        .then(userSchools => {
+            console.log(userSchools);
+            if (userSchools) {
+                res.status(200).json(userSchools);
+            } else {
+                res.status(404).json({
+                    message: "Could not find school from that user",
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err });
+        });
+});
+
 router.get("/:id", (req, res) => {
     const id = req.params.id;
     schoolDb
