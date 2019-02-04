@@ -6,9 +6,19 @@ module.exports = {
     getByUserId,
     getBySchoolId,
     addNewDonation,
-    // updateDonation,
+    updateDonation,
     // deleteDonation,
 };
+
+function updateDonation(donationId, user, donationInfo) {
+    console.log(donationId, user.id, donationInfo);
+    return db("donationsNeeded")
+        .where({
+            id: donationId,
+            userId: user.id,
+        })
+        .update(donationInfo);
+}
 
 function addNewDonation(schoolId, user, donationInfo) {
     return db("donationsNeeded").insert({

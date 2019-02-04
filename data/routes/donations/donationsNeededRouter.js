@@ -4,6 +4,27 @@ const { protected } = require("../../middleware/protectedMW");
 const donationDb = require("../../helpers/donationsNeedDb.js");
 const router = express.Router();
 
+router.put("/update/:id", protected, (req, res) => {
+    const id = req.params.id;
+    const donationInfo = req.body;
+
+    donationDb
+        .updateDonation(id, req.decodedToken, donationInfo)
+        .then(result => {
+            if (result === 1) {
+                res.status(200).json(result);
+            } else {
+                res.status(404).json({
+                    result,
+                    message: "Failed to update donation",
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err });
+        });
+});
+
 router.post("/schools/:id", protected, (req, res) => {
     const id = req.params.id;
     const donationInfo = req.body;
