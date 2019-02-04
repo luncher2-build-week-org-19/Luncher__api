@@ -48,7 +48,7 @@ router.post("/", protected, (req, res) => {
     schoolDb
         .addSchool(schoolInfo, req.decodedToken)
         .then(ids => {
-            console.log(ids);
+            // console.log(ids);
             res.status(201).json(ids);
         })
         .catch(err => {
@@ -64,7 +64,7 @@ router.get("/user/:id", (req, res) => {
     schoolDb
         .getSchoolByUserId(id)
         .then(userSchools => {
-            console.log(userSchools);
+            // console.log(userSchools);
             if (userSchools) {
                 res.status(200).json(userSchools);
             } else {
@@ -83,7 +83,7 @@ router.get("/:id", (req, res) => {
     schoolDb
         .getSchoolById(id)
         .then(school => {
-            console.log(school);
+            // console.log(school);
             if (school) {
                 res.status(200).json(school);
             } else {
