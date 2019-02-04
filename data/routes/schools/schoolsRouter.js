@@ -4,6 +4,27 @@ const { protected } = require("../../middleware/protectedMW");
 const schoolDb = require("../../helpers/schoolsDb.js");
 const router = express.Router();
 
+router.put("/:id", protected, (req, res) => {
+    const id = req.params.id;
+    const schoolInfo = req.body;
+
+    if (schoolInfo.schoolname) {
+        schoolDb
+            .updateSchool(id, schoolInfo)
+            .then(result => {
+                res.status(200).json(result);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    err,
+                    message: "Failed to update school info",
+                });
+            });
+    } else {
+        res.status(500).json({ message: "Provide school name" });
+    }
+});
+
 router.post("/", protected, (req, res) => {
     const schoolInfo = req.body;
     // console.log(schoolInfo);
