@@ -11,7 +11,7 @@ router.post("/register", (req, res) => {
     if (creds.password) {
         const hashedPassword = bcrypt.hashSync(creds.password, 14);
         creds.password = hashedPassword;
-
+        console.log(creds);
         if (
             creds.firstName &&
             creds.lastName &&
