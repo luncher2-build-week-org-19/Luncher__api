@@ -16,12 +16,16 @@ const server = express();
 server.use(helmet());
 server.use(morgan("short"));
 server.use(express.json());
-server.use(
-    cors({
-        credentials: true,
-        origin: "http://localhost:3000",
-    })
-);
+server.use(cors());
+
+server.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
 
 // server.use('./folder', requiredRoute)
 server.use("/users", usersRoute);
