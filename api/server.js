@@ -13,10 +13,19 @@ const schoolsRoute = require("../data/routes/schools/schoolsRouter.js");
 
 const server = express();
 
+const corsOptions = {
+    origin: "https://luncher-2-bw-19-lambda.herokuapp.com/",
+    optionsSuccessStatus: 200,
+};
+
+server.use(cors(corsOptions));
+server.options("*", cors());
+
 server.use(helmet());
 server.use(morgan("short"));
 server.use(express.json());
-server.use(cors());
+
+// server.use(cors());
 
 // server.use('/apiUrl', requiredRoute)
 server.use("/users", usersRoute);
