@@ -4,6 +4,23 @@ const { protected } = require("../../middleware/protectedMW");
 const schoolDb = require("../../helpers/schoolsDb.js");
 const router = express.Router();
 
+router.post("/", protected, (req, res) => {
+    const schoolInfo = req.body;
+    // console.log(schoolInfo);
+    schoolDb
+        .addSchool(schoolInfo, req.decodedToken)
+        .then(ids => {
+            console.log(ids);
+            res.status(201).json(ids);
+        })
+        .catch(err => {
+            res.status(500).json({
+                err,
+                error: "Could not add new school, already exists",
+            });
+        });
+});
+
 router.get("/user/:id", (req, res) => {
     const id = req.params.id;
     schoolDb
