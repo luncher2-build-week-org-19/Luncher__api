@@ -6,11 +6,16 @@ module.exports = {
     getSchoolByUserId,
     addSchool,
     updateSchool,
-    // deleteSchool,
+    deleteSchool,
 };
 
+function deleteSchool(id) {
+    return db("schools")
+        .where({ id: id })
+        .del();
+}
+
 function updateSchool(id, school) {
-    console.log({ id, school });
     return db("schools")
         .where({ id: id })
         .update(school);

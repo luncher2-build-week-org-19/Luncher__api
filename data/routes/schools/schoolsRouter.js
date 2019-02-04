@@ -4,7 +4,24 @@ const { protected } = require("../../middleware/protectedMW");
 const schoolDb = require("../../helpers/schoolsDb.js");
 const router = express.Router();
 
-router.put("/:id", protected, (req, res) => {
+router.delete("/delete/:id", protected, (req, res) => {
+    const id = req.params.id;
+
+    schoolDb
+        .deleteSchool(id)
+        .then(count => {
+            if (count === 1) {
+                res.status(200).json(count);
+            } else {
+                res.status(404).json({ message: "School could not be found" });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err, message: "Could not delete school" });
+        });
+});
+
+router.put("/update/:id", protected, (req, res) => {
     const id = req.params.id;
     const schoolInfo = req.body;
 
