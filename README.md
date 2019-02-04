@@ -70,7 +70,7 @@
 
     ### Response
 
-    **200 (OK)**
+    **201 (OK)**
 
     > On Success Returns ID
 
@@ -112,7 +112,7 @@
 
     ### Response
 
-    **201 (OK)**
+    **200 (OK)**
 
     > On Success Returns Object
 
@@ -137,9 +137,9 @@
 
     ### Headers
 
-    | name          | type   | required | description |
-    | ------------- | ------ | -------- | ----------- |
-    | Authorization | String | Yes      | token       |
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
 
     ### Response
 
@@ -255,9 +255,9 @@
 
     ### Headers
 
-    | name          | type   | required | description |
-    | ------------- | ------ | -------- | ----------- |
-    | Authorization | String | Yes      | token       |
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
 
     ### Response
 
@@ -442,7 +442,7 @@
 
 6. `Delete School` <a name='deleteSchool'></a>
 
-    _Method URL: /update/:id_
+    _Method URL: /delete/:id_
 
     _HTTP method: [DELETE]_
 
