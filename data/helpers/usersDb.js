@@ -31,6 +31,7 @@ function getAllUsers() {
 }
 
 function getUserInfo(user) {
+    console.log(user);
     return db("users")
         .select("id", "userName", "email", "firstName", "lastName", "userRole")
         .where({ username: user.username });
