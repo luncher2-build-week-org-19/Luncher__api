@@ -16,7 +16,12 @@ const server = express();
 server.use(helmet());
 server.use(morgan("short"));
 server.use(express.json());
-server.use(cors());
+server.use(
+    cors({
+        credentials: true,
+        origin: "http://localhost:3000",
+    })
+);
 
 // server.use('./folder', requiredRoute)
 server.use("/users", usersRoute);
