@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
                     description:
                         "Help make the celebration of this great achievment a memorable one.",
                     amount: 900,
-                    userId: 1,
+                    userId: 2,
                     schoolId: 2,
                 },
             ]);
