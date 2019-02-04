@@ -9,6 +9,7 @@ const {
 
 // add routes here
 const usersRoute = require("../data/routes/users/usersRouter.js");
+const schoolsRoute = require("../data/routes/schools/schoolsRouter.js");
 
 const server = express();
 
@@ -19,6 +20,7 @@ server.use(cors());
 
 // server.use('./folder', requiredRoute)
 server.use("/users", usersRoute);
+server.use("/schools", schoolsRoute);
 
 server.get("/", (req, res) => {
     res.send("sanity check; server connected");
