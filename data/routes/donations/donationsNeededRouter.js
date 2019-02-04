@@ -4,6 +4,25 @@ const { protected } = require("../../middleware/protectedMW");
 const donationDb = require("../../helpers/donationsNeedDb.js");
 const router = express.Router();
 
+router.delete("/delete/:id", protected, (req, res) => {
+    const id = req.params.id;
+
+    donationDb
+        .deleteDonation(id, req.decodedToken)
+        .then(result => {
+            if (result === 1) {
+                res.status(200).json(result);
+            } else {
+                res.status(401).json({
+                    message: "No authorization to delete this donationInfo",
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err });
+        });
+});
+
 router.put("/update/:id", protected, (req, res) => {
     const id = req.params.id;
     const donationInfo = req.body;
@@ -14,9 +33,9 @@ router.put("/update/:id", protected, (req, res) => {
             if (result === 1) {
                 res.status(200).json(result);
             } else {
-                res.status(404).json({
+                res.status(401).json({
                     result,
-                    message: "Failed to update donation",
+                    message: "No authorization to update this donationInfo",
                 });
             }
         })

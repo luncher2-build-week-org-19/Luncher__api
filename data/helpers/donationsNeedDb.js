@@ -7,8 +7,14 @@ module.exports = {
     getBySchoolId,
     addNewDonation,
     updateDonation,
-    // deleteDonation,
+    deleteDonation,
 };
+
+function deleteDonation(id, user) {
+    return db("donationsNeeded")
+        .where({ id: id, userId: user.id })
+        .del();
+}
 
 function updateDonation(donationId, user, donationInfo) {
     console.log(donationId, user.id, donationInfo);
