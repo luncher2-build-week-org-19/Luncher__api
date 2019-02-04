@@ -4,6 +4,26 @@ const { protected } = require("../../middleware/protectedMW");
 const donationDb = require("../../helpers/donationsNeedDb.js");
 const router = express.Router();
 
+router.get("/:id", (req, res) => {
+    const id = req.params.id;
+
+    donationDb
+        .getById(id)
+        .then(donation => {
+            console.log(donation);
+            if (donation.length !== 0) {
+                res.status(200).json(donation);
+            } else {
+                res.status(404).json({
+                    message: "Donation not found with that id",
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err });
+        });
+});
+
 router.get("/all", (req, res) => {
     donationDb
         .getAll()
@@ -11,10 +31,7 @@ router.get("/all", (req, res) => {
             res.status(200).json(donations);
         })
         .catch(err => {
-            res.status(500).json({
-                err,
-                error: "Failed to return all donation needs",
-            });
+            res.status(500).json({ err });
         });
 });
 
