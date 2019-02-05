@@ -2,6 +2,7 @@ const { jwt } = require("../../configMiddleware/configMW.js");
 
 module.exports = {
     protected,
+    checkRole,
 };
 
 function protected(req, res, next) {
@@ -19,4 +20,14 @@ function protected(req, res, next) {
     } else {
         res.status(401).json({ error: "missing token" });
     }
+}
+
+function checkRole(userRole) {
+    return function(req, res, next) {
+        if (req.decodedToken.userRole.includes(userRole)) {
+            next();
+        } else {
+            res.status(403).json({ message: "Not Authorized!" });
+        }
+    };
 }
