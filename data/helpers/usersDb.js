@@ -5,6 +5,7 @@ module.exports = {
     loginUser,
     getUserInfo,
     getAllUsers,
+    getUserById,
     updateUser,
     deleteUser,
 };
@@ -28,6 +29,13 @@ function getUserInfo(user) {
     return db("users")
         .select("id", "userName", "email", "firstName", "lastName", "userRole")
         .where({ username: user.username });
+}
+
+function getUserById(id) {
+    return db("users")
+        .select("id", "userName", "userRole")
+        .where({ id: id })
+        .first();
 }
 
 function updateUser(user, updateInfo) {
