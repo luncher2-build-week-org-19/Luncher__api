@@ -1,14 +1,14 @@
 const { express } = require("../../../configMiddleware/configMW.js");
-const { protected } = require("../../middleware/protectedMW");
+const { protected, checkRole } = require("../../middleware/protectedMW");
 
 const schoolDb = require("../../helpers/schoolsDb.js");
 const router = express.Router();
 
-router.delete("/delete/:id", protected, (req, res) => {
+router.delete("/delete/:id", protected, checkRole("admin"), (req, res) => {
     const id = req.params.id;
 
     schoolDb
-        .deleteSchool(id)
+        .deleteSchool(id, req.decodedToken)
         .then(count => {
             if (count === 1) {
                 res.status(200).json(count);
@@ -21,7 +21,7 @@ router.delete("/delete/:id", protected, (req, res) => {
         });
 });
 
-router.put("/update/:id", protected, (req, res) => {
+router.put("/update/:id", protected, checkRole("admin"), (req, res) => {
     const id = req.params.id;
     const schoolInfo = req.body;
 
@@ -42,7 +42,7 @@ router.put("/update/:id", protected, (req, res) => {
     }
 });
 
-router.post("/", protected, (req, res) => {
+router.post("/", protected, checkRole("admin"), (req, res) => {
     const schoolInfo = req.body;
     // console.log(schoolInfo);
     schoolDb

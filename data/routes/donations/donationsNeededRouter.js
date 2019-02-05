@@ -1,10 +1,10 @@
 const { express } = require("../../../configMiddleware/configMW.js");
-const { protected } = require("../../middleware/protectedMW");
+const { protected, checkRole } = require("../../middleware/protectedMW");
 
 const donationDb = require("../../helpers/donationsNeedDb.js");
 const router = express.Router();
 
-router.delete("/delete/:id", protected, (req, res) => {
+router.delete("/delete/:id", protected, checkRole("admin"), (req, res) => {
     const id = req.params.id;
 
     donationDb
@@ -23,7 +23,7 @@ router.delete("/delete/:id", protected, (req, res) => {
         });
 });
 
-router.put("/update/:id", protected, (req, res) => {
+router.put("/update/:id", protected, checkRole("admin"), (req, res) => {
     const id = req.params.id;
     const donationInfo = req.body;
 
@@ -44,7 +44,7 @@ router.put("/update/:id", protected, (req, res) => {
         });
 });
 
-router.post("/schools/:id", protected, (req, res) => {
+router.post("/schools/:id", protected, checkRole("admin"), (req, res) => {
     const id = req.params.id;
     const donationInfo = req.body;
 
