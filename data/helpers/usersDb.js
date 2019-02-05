@@ -11,6 +11,7 @@ module.exports = {
 };
 
 function registerUser(user) {
+    user.userRole = user.userRole.toLowerCase();
     return db("users").insert(user);
 }
 
