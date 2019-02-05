@@ -82,6 +82,25 @@ router.get("/all", (req, res) => {
         });
 });
 
+router.get("/:id", (req, res) => {
+    const id = req.params.id;
+
+    userDb
+        .getUserById(id)
+        .then(user => {
+            if (user.length !== 0) {
+                res.status(200).json(user);
+            } else {
+                res.status(404).json({
+                    message: "User by that ID could not be found",
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).json({ err });
+        });
+});
+
 router.put("/update", protected, (req, res) => {
     const creds = req.body;
     const hashedPassword = bcrypt.hashSync(creds.password, 14);
