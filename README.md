@@ -2,7 +2,7 @@
 
 ## HEROKU DEPLOYMENT
 
-    - https://luncher-2-bw-19-lambda.herokuapp.com/
+> https://luncher-2-bw-19-lambda.herokuapp.com/
 
 ---
 
@@ -22,9 +22,13 @@
 
 [Get All Schools](#allSchools) | [Get School By ID](#schoolId) | [Get School By UserID](#schoolUserId) | [Add School](#addSchool) | [Update School](#updateSchool) | [Delete School](#deleteSchool)
 
+### DONATIONS
+
+[Get All Donations](#getallcreateddonations) | [Get Donation By ID](#getDonationById) | [Get Donation By UserID](#getdonationbyuserid) | [Get Donation By SchoolID](#getdonationbyschoolid) | [Add New Donation](#addnewdonation) | [Update Donation](#updatedonation) | [Delete Donation](#deletedonation)
+
 ### AXIOS
 
-[Axios Example #1](#axiosPost)
+[Axios Post Example](#axiosPost)
 
 ---
 
@@ -470,6 +474,249 @@
 
 ---
 
+## Donations
+
+1.  `Get All Donations` <a name="getallcreateddonations"></a>
+
+    _Method URL: /donations/all_
+
+    _HTTP method: [GET]_
+
+    ### Header
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Array of Objects
+
+    ```
+        [
+            {
+                "id": 1,
+                "title": "No Kid Starving",
+                "description": "Give the gift of food to children and help them become all that they can become!",
+                "amount": 5000,
+                "userId": 1,
+                "schoolId": 6
+            },
+            {
+                "id": 2,
+                "title": "Food for Thought",
+                "description": "Why isn't a group of squid called a squad?",
+                "amount": 3000,
+                "userId": 1,
+                "schoolId": 1
+            }
+
+        ]
+    ```
+
+---
+
+2. `Get Donation By ID` <a name="getDonationById"></a>
+
+    _Method URL: /donations/:id_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Array
+
+    ```
+        [
+            {
+                "id": 1,
+                "title": "No Kid Starving",
+                "description": "Give the gift of food to children and help them become all that they can become!",
+                "amount": 5000,
+                "userId": 1,
+                "schoolId": 6
+            }
+        ]
+    ```
+
+---
+
+3. `Get Donations By User ID` <a name="getdonationbyuserid"></a>
+
+    _Method URL: /donations/users/:id_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Array
+
+    ```
+        [
+            {
+                "id": 1,
+                "title": "No Kid Starving",
+                "description": "Give the gift of food to children and help them become all that they can become!",
+                "amount": 5000,
+                "userId": 1,
+                "schoolId": 6
+            },
+            {
+                "id": 2,
+                "title": "Food for Thought",
+                "description": "Why isn't a group of squid called a squad?",
+                "amount": 3000,
+                "userId": 1,
+                "schoolId": 1
+            }
+        ]
+    ```
+
+---
+
+4. `Get Donations By School ID` <a name="getdonationbyschoolid"></a>
+
+    _Method URL: /donations/schools/:id_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Array
+
+    ```
+        [
+            {
+                "id": 2,
+                "title": "Food for Thought",
+                "description": "Why isn't a group of squid called a squad?",
+                "amount": 3000,
+                "userId": 1,
+                "schoolId": 1
+            }
+        ]
+    ```
+
+---
+
+5. `Add New Donation` <a name="addnewdonation"></a>
+
+    _Method URL: /donations/schools/:id_
+
+    _HTTP method: [POST]_
+
+    ### Headers
+
+    | name          | type   | required | description |
+    | ------------- | ------ | -------- | ----------- |
+    | Authorization | String | Yes      | token       |
+
+    ### Body
+
+    | name        | type   | required | description |
+    | ----------- | ------ | -------- | ----------- |
+    | title       | String | Yes      |             |
+    | description | String | No       |             |
+    | amount      | String | Yes      | integer     |
+
+    ### Response
+
+    **201 (OK)**
+
+    > On Success Returns ID
+
+    ```
+        [
+            6
+        ]
+    ```
+
+---
+
+6. `Update Donation` <a name="updatedonation"></a>
+
+    _Method URL: /donations/update/:id_
+
+    _HTTP method: [PUT]_
+
+    ### Headers
+
+    | name          | type   | required | description |
+    | ------------- | ------ | -------- | ----------- |
+    | Authorization | String | Yes      | token       |
+
+    ### Body
+
+    | name        | type   | required | description |
+    | ----------- | ------ | -------- | ----------- |
+    | title       | String | No       |             |
+    | description | String | No       |             |
+    | amount      | String | No       | integer     |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns 1
+
+    ```
+        1
+    ```
+
+---
+
+7. `Delete Donation` <a name="deletedonation"></a>
+
+    _Method URL: /donations/delete/:id_
+
+    _HTTP method: [DELETE]_
+
+    ### Headers
+
+    ### Headers
+
+    | name          | type   | required | description |
+    | ------------- | ------ | -------- | ----------- |
+    | Authorization | String | Yes      | token       |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns 1
+
+    ```
+        1
+    ```
+
+---
+
 ## Axios Examples
 
 1. `Axios Post Request` <a name='axiosPost'></a>
@@ -477,11 +724,11 @@
     ```
         axios({
             method: "post",
-            url: `https://${API_URL}/workouts`,
+            url: `https://${API_URL}/schools`,
             headers: {
                 Authorization: token
             },
-            body: {
+            data: {
                 username: "john doe",
                 email: "johndoe@email.com",
                 password: "password123"
