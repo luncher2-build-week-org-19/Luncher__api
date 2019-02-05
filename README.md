@@ -16,7 +16,7 @@
 
 ### USERS
 
-[Register](#register) | [Login](#login) | [Get All Users](#allusers) | [Get User Info](#userInfo) | [Update User](#updateUser) | [Delete User](#deleteUser)
+[Register](#register) | [Login](#login) | [Get All Users](#allusers) | [Get User By Id](#getuserbyid) | [Get User Info](#userInfo) | [Update User](#updateUser) | [Delete User](#deleteUser)
 
 ### SCHOOLS
 
@@ -170,7 +170,37 @@
 
 ---
 
-4.  `Get User Info` <a name='userInfo'></a>
+4. `Get User By Id` <a name="getuserbyid"></a>
+
+    _Method URL: /users/:id_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Object
+
+    ```
+        {
+            "id": 1,
+            "username": "Illusions",
+            "firstName": "Bob",
+            "lastName": "Jimbo",
+            "userRole": "admin"
+        }
+    ```
+
+---
+
+5.  `Get User Info` <a name='userInfo'></a>
 
     _Method URL: /users/info_
 
@@ -203,7 +233,7 @@
 
 ---
 
-5.  `Update User Info` <a name='updateUser'></a>
+6.  `Update User Info` <a name='updateUser'></a>
 
     _Method URL: /users/update_
 
@@ -225,7 +255,7 @@
 
 ---
 
-6.  `Delete User` <a name='deleteUser'></a>
+7.  `Delete User` <a name='deleteUser'></a>
 
     _Method URL: /users/delete_
 
