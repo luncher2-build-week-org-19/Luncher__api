@@ -46,7 +46,16 @@ function updateUser(user, updateInfo) {
 }
 
 function deleteUser(user) {
-    return db("users")
+    const userDelete = db("users")
         .where({ username: user.username })
         .del();
+
+    const donationDelete = db("donationsNeeded")
+        .where({ userId: user.id })
+        .del();
+
+    return Promise.all([userDelete, donationDelete]).then(res => {
+        console.log(res);
+        return res[0];
+    });
 }

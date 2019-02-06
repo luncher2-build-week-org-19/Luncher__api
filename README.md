@@ -24,7 +24,13 @@
 
 ### DONATIONS
 
+_New donation needs_
+
 [Get All Donations](#getallcreateddonations) | [Get Donation By ID](#getDonationById) | [Get Donation By UserID](#getdonationbyuserid) | [Get Donation By SchoolID](#getdonationbyschoolid) | [Add New Donation](#addnewdonation) | [Update Donation](#updatedonation) | [Delete Donation](#deletedonation)
+
+_Donations Received_
+
+[Get All Donated](#getalldonated) | [Get All Donated By Donation ID](#getalldonatedbydonationid) | [Get All Donated By School ID](#getalldonatedbyschoolid) | [Add Donated](#adddonated)
 
 ### AXIOS
 
@@ -445,7 +451,7 @@
 
 5. `Update School` <a name='updateSchool'></a>
 
-    _Method URL: /update/:id_
+    _Method URL: /schools/update/:id_
 
     _HTTP method: [PUT]_
 
@@ -476,7 +482,7 @@
 
 6. `Delete School` <a name='deleteSchool'></a>
 
-    _Method URL: /delete/:id_
+    _Method URL: /schools/delete/:id_
 
     _HTTP method: [DELETE]_
 
@@ -505,6 +511,8 @@
 ---
 
 ## Donations
+
+### New Donation Needs
 
 1.  `Get All Donations` <a name="getallcreateddonations"></a>
 
@@ -729,8 +737,6 @@
 
     ### Headers
 
-    ### Headers
-
     | name          | type   | required | description |
     | ------------- | ------ | -------- | ----------- |
     | Authorization | String | Yes      | token       |
@@ -743,6 +749,189 @@
 
     ```
         1
+    ```
+
+---
+
+### Donations Received
+
+1. `Get All Donations Received` <a name="getalldonated"></a>
+
+    _Method URL: /donations/made/all_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Array
+
+    ```
+        [
+            {
+                "id": 1,
+                "amount": 50.5,
+                "userId": 3,
+                "donationId": 1,
+                "username": "Maybie"
+            },
+            {
+                "id": 2,
+                "amount": 25,
+                "userId": 1,
+                "donationId": 2,
+                "username": "Illusions"
+            }
+        ]
+    ```
+
+---
+
+2. `Get Donations Received by Donation Need Id` <a name="getalldonatedbydonationid"></a>
+
+    _Method URL: /donations/made/:id_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Object
+
+    ```
+        {
+            "res": [
+                {
+                    "id": 1,
+                    "amount": 50.5,
+                    "userId": 3,
+                    "donationId": 1,
+                    "username": "Maybie"
+                },
+                {
+                    "id": 9,
+                    "amount": 35.7,
+                    "userId": 3,
+                    "donationId": 1,
+                    "username": "Maybie"
+                },
+                {
+                    "id": 17,
+                    "amount": 299,
+                    "userId": 5,
+                    "donationId": 1,
+                    "username": "test3"
+                }
+            ],
+            "totalReceived": 385.2
+        }
+    ```
+
+---
+
+3. `Get Donations Received by User Id` <a name="getalldonatedbyuserid"></a>
+
+    _Method URL: /donations/made/users/:id_
+
+    _HTTP method: [GET]_
+
+    ### Headers
+
+    | name         | type   | required | description              |
+    | ------------ | ------ | -------- | ------------------------ |
+    | Content-type | String | Yes      | Must be application/json |
+
+    ### Response
+
+    **200 (OK)**
+
+    > On Success Returns Array
+
+    ```
+        [
+            [
+                {
+                    "id": 2,
+                    "amount": 25,
+                    "userId": 1,
+                    "donationId": 2
+                },
+                {
+                    "id": 3,
+                    "amount": 40.89,
+                    "userId": 1,
+                    "donationId": 3
+                },
+                {
+                    "id": 10,
+                    "amount": 22.25,
+                    "userId": 1,
+                    "donationId": 2
+                },
+                {
+                    "id": 11,
+                    "amount": 99,
+                    "userId": 1,
+                    "donationId": 4
+                }
+            ],
+            [
+                {
+                    "id": 1,
+                    "firstName": "Gob",
+                    "lastName": "Bluth",
+                    "userRole": "admin",
+                    "username": "Illusions",
+                    "email": "gBluth@test.com"
+                }
+            ]
+        ]
+    ```
+
+---
+
+4. `Add New User Donation` <a name="adddonated"></a>
+
+    _Method URL: /donations/made/:id_
+
+    _HTTP method: [POST]_
+
+    ### Headers
+
+    | name          | type   | required | description |
+    | ------------- | ------ | -------- | ----------- |
+    | Authorization | String | Yes      | token       |
+
+    ### Body
+
+    | name   | type   | required | description    |
+    | ------ | ------ | -------- | -------------- |
+    | amount | String | Yes      | donated amount |
+
+    ### Response
+
+    **201 (OK)**
+
+    > On Success Returns ID
+
+    ```
+        [
+            18
+        ]
     ```
 
 ---
