@@ -30,7 +30,7 @@ _New donation needs_
 
 _Donations Received_
 
-[Get All Donated](#getalldonated) | [Get All Donated By Donation ID](#getalldonatedbydonationid) | [Get All Donated By School ID](#getalldonatedbyschoolid) | [Add Donated](#adddonated)
+[Get All Donated](#getalldonated) | [Get All Donated By Donation ID](#getalldonatedbydonationid) | [Get All Donated By User ID](#getalldonatedbyuserid) | [Add Donated](#adddonated)
 
 ### AXIOS
 
