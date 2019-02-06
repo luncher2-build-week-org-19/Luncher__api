@@ -12,8 +12,10 @@ module.exports = {
 
 function deleteDonation(id, user) {
     return db("donationsNeeded")
-        .where({ id: id, userId: user.id })
+        .where({ id: id })
         .del();
+
+    // .where({ id: id, userId: user.id })
 }
 
 function updateDonation(donationId, user, donationInfo) {
@@ -21,9 +23,13 @@ function updateDonation(donationId, user, donationInfo) {
     return db("donationsNeeded")
         .where({
             id: donationId,
-            userId: user.id,
         })
         .update(donationInfo);
+
+    // .where({
+    //     id: donationId,
+    //     userId: user.id,
+    // })
 }
 
 function addNewDonation(schoolId, user, donationInfo) {

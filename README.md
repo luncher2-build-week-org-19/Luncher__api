@@ -30,7 +30,7 @@ _New donation needs_
 
 _Donations Received_
 
-[Get All Donated](#getalldonated) | [Get All Donated By Donation ID](#getalldonatedbydonationid) | [Get All Donated By School ID](#getalldonatedbyschoolid) | [Add Donated](#adddonated)
+[Get All Donated](#getalldonated) | [Get All Donated By Donation ID](#getalldonatedbydonationid) | [Get All Donated By User ID](#getalldonatedbyuserid) | [Add Donated](#adddonated)
 
 ### AXIOS
 
@@ -59,9 +59,9 @@ _Donations Received_
     | name      | type   | required | description              |
     | --------- | ------ | -------- | ------------------------ |
     | firstName | String | No       |                          |
-    | last Name | String | No       |                          |
+    | lastName  | String | No       |                          |
     | userRole  | String | Yes      | required                 |
-    | username  | String | Yes      | required, must be unique |
+    | userName  | String | Yes      | required, must be unique |
     | email     | String | Yes      | required, must be unique |
     | password  | String | Yes      | required                 |
 
