@@ -20,7 +20,9 @@ function addDonationAmount(id, info, user) {
 
 function getDonationByUserId(id) {
     const donated = db("donationsReceived").where({ userId: id });
-    const users = db("users").where({ id: id });
+    const users = db("users")
+        .select("id", "firstName", "lastName", "username", "email")
+        .where({ id: id });
 
     return Promise.all([donated, users]).then(res => {
         return res;
@@ -48,7 +50,7 @@ function getDonatedById(id) {
 
         [res] = res;
 
-        return { res, totalRecived: total };
+        return { res, totalReceived: total };
     });
 }
 
