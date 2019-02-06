@@ -10,9 +10,18 @@ module.exports = {
 };
 
 function deleteSchool(id) {
-    return db("schools")
+    const schoolDeleted = db("schools")
         .where({ id: id })
         .del();
+
+    const donationsDeleted = db("donationsNeeded")
+        .where({ schoolId: id })
+        .del();
+
+    return Promise.all([schoolDeleted, donationsDeleted]).then(res => {
+        console.log(res);
+        return res[0];
+    });
 }
 
 function updateSchool(id, school) {
