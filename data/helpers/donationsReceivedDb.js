@@ -3,7 +3,17 @@ const db = require("../dbConfig.js");
 module.exports = {
     getAllDonated,
     getDonatedById,
+    getDonationByUserId,
 };
+
+function getDonationByUserId(id) {
+    const donated = db("donationsReceived").where({ userId: id });
+    const users = db("users").where({ id: id });
+
+    return Promise.all([donated, users]).then(res => {
+        return res;
+    });
+}
 
 function getDonatedById(id) {
     const donated = db("donationsReceived").where({ donationId: id });
