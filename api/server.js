@@ -11,6 +11,7 @@ const {
 const usersRoute = require("../data/routes/users/usersRouter.js");
 const schoolsRoute = require("../data/routes/schools/schoolsRouter.js");
 const donationsNeededRoute = require("../data/routes/donations/donationsNeededRouter.js");
+const donationsReceivedRoute = require("../data/routes/donations/donationsReceivedRouter.js");
 
 const server = express();
 
@@ -31,6 +32,7 @@ server.use(cors());
 server.use("/users", usersRoute);
 server.use("/schools", schoolsRoute);
 server.use("/donations", donationsNeededRoute);
+server.use("/donations/made", donationsReceivedRoute);
 
 server.get("/", (req, res) => {
     res.send("sanity check; server connected");
