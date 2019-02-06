@@ -4,7 +4,19 @@ module.exports = {
     getAllDonated,
     getDonatedById,
     getDonationByUserId,
+    addDonationAmount,
 };
+
+function addDonationAmount(id, info, user) {
+    let donatedAmount = {
+        amount: info.amount,
+        userId: user.id,
+        donationId: id,
+    };
+
+    console.log(donatedAmount);
+    return db("donationsReceived").insert(donatedAmount);
+}
 
 function getDonationByUserId(id) {
     const donated = db("donationsReceived").where({ userId: id });
