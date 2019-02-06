@@ -59,9 +59,9 @@ _Donations Received_
     | name      | type   | required | description              |
     | --------- | ------ | -------- | ------------------------ |
     | firstName | String | No       |                          |
-    | last Name | String | No       |                          |
+    | lastName  | String | No       |                          |
     | userRole  | String | Yes      | required                 |
-    | username  | String | Yes      | required, must be unique |
+    | userName  | String | Yes      | required, must be unique |
     | email     | String | Yes      | required, must be unique |
     | password  | String | Yes      | required                 |
 
