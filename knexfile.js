@@ -38,7 +38,7 @@ module.exports = {
     },
 
     production: {
-        client: "PGl",
+        client: "pg",
         connection: dbConnection,
         useNullAsDefault: true,
         migrations: {
