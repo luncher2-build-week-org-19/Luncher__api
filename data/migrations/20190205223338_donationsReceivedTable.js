@@ -6,16 +6,16 @@ exports.up = function(knex, Promise) {
             .unsigned()
             .references("id")
             .inTable("users")
+            .notNullable()
             .onDelete('CASCADE')
-			.onUpdate('CASCADE')
-            .notNullable();
+			.onUpdate('CASCADE');
         tbl.integer("donationId")
             .unsigned()
             .references("id")
             .inTable("donationsNeeded")
+            .notNullable()
             .onDelete('CASCADE')
-			.onUpdate('CASCADE')
-            .notNullable();
+			.onUpdate('CASCADE');
     });
 };
 
