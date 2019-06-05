@@ -1,4 +1,7 @@
 const knex = require("knex");
 const knexConfig = require("../knexfile.js");
+require('dotenv').config();
 
-module.exports = knex(knexConfig.development);
+const environment = process.eventNames.DB_ENV || 'development';
+
+module.exports = knex(knexConfig[environment]);
