@@ -13,7 +13,7 @@ exports.up = function(knex, Promise) {
             .inTable("users")
             .notNullable()
             .onDelete('CASCADE')
-			.onUpdate('CASCADE');
+            .onUpdate('CASCADE');
     });
 };
 

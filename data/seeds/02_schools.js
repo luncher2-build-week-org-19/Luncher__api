@@ -5,20 +5,20 @@ exports.seed = function(knex, Promise) {
       .then(function() {
           // Inserts seed entries
           return knex("schools").insert([
-              // { image: "", schoolname: "Oak Ridge High School", userId: 1 },
+              { image: "", schoolname: "Oak Ridge High School", userId: 1 },
               {
                   image:
                       "https://cdn.pixabay.com/photo/2014/04/03/00/43/lion-309219_960_720.png",
                   schoolname: "Boone High School",
                   userId: 0,
               },
-              // { image: "", schoolname: "Winter Park High School", userId: 2 },
-              // {
-              //     image: "",
-              //     schoolname: "Washington Middle School",
-              //     userId: 3,
-              // },
-              // { image: "", schoolname: "Walker Middle School", userId: 1 },
+              { image: "", schoolname: "Winter Park High School", userId: 2 },
+              {
+                  image: "",
+                  schoolname: "Washington Middle School",
+                  userId: 3,
+              },
+              { image: "", schoolname: "Walker Middle School", userId: 1 },
               {
                   image:
                       "https://i.pinimg.com/originals/ca/2f/19/ca2f19b5c0a37481a3a731a629fc2346.png",
