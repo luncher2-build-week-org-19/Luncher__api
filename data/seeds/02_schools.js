@@ -30,12 +30,12 @@ exports.seed = function(knex, Promise) {
                   schoolname: "Meadow Creek Elementary School",
                   userId: 1,
               },
-              // {
-              //     image:
-              //         "https://www.clipartmax.com/png/middle/222-2220631_dragon-clipart-black-and-white-school-clipart-dragon-public-domain.png",
-              //     schoolname: "Southchase Elementary School",
-              //     userId: 2,
-              // },
+              {
+                  image:
+                      "https://www.clipartmax.com/png/middle/222-2220631_dragon-clipart-black-and-white-school-clipart-dragon-public-domain.png",
+                  schoolname: "Southchase Elementary School",
+                  userId: 2,
+              },
           ]);
       });
 };
