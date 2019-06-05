@@ -11,9 +11,9 @@ exports.up = function(knex, Promise) {
             .unsigned()
             .references("id")
             .inTable("users")
+            .notNullable()
             .onDelete('CASCADE')
-			.onUpdate('CASCADE')
-            .notNullable();
+			.onUpdate('CASCADE');
     });
 };
 
