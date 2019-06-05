@@ -8,11 +8,15 @@ exports.up = function(knex, Promise) {
             .unsigned()
             .references("id")
             .inTable("users")
+            .onDelete('CASCADE')
+			.onUpdate('CASCADE')
             .notNullable();
         tbl.integer("schoolId")
             .unsigned()
             .references("id")
             .inTable("schools")
+            .onDelete('CASCADE')
+			.onUpdate('CASCADE')
             .notNullable();
     });
 };
