@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
                   image:
                       "https://cdn.pixabay.com/photo/2014/04/03/00/43/lion-309219_960_720.png",
                   schoolname: "Boone High School",
-                  userId: 0,
+                  userId: 4,
               },
               { image: "", schoolname: "Winter Park High School", userId: 2 },
               {
