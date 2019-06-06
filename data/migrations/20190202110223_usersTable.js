@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
             .unique("email")
             .notNullable();
         tbl.string("password", 255).notNullable();
+        tbl.timestamps(true, true);
     });
 };
 

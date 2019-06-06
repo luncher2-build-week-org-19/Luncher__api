@@ -14,8 +14,9 @@ exports.up = function(knex, Promise) {
             .references("id")
             .inTable("donationsNeeded")
             .notNullable()
-            .onDelete('CASCADE')
-			.onUpdate('CASCADE');
+            .onDelete("CASCADE")
+            .onUpdate("CASCADE");
+        tbl.timestamps(true, true);
     });
 };
 

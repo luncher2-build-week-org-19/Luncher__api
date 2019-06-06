@@ -12,8 +12,13 @@ exports.up = function(knex, Promise) {
             .references("id")
             .inTable("users")
             .notNullable()
-            .onDelete('CASCADE')
-            .onUpdate('CASCADE');
+            .onDelete("CASCADE")
+            .onUpdate("CASCADE");
+        tbl.string("state", 128)
+            .notNullable();
+        tbl.string("level", 128)
+            .notNullable();
+        tbl.timestamps(true, true);
     });
 };
 
